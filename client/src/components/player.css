@@ -1,0 +1,10 @@
+.current {
+    position: sticky;
+    bottom: 0px;
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+.current-artists {
+    color: rgb(163, 163, 163);
+}
