@@ -8,7 +8,7 @@ function App() {
     return (
       <Router>
         <div className="App">
-          <a href='http://localhost:5000/login'> Login to Spotify </a>
+          <a href='/login'> Login to Spotify </a>
           <Route path="/player" component={Player}/>
         </div>
         <script src="https://sdk.scdn.co/spotify-player.js"></script>

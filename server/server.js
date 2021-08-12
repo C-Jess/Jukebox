@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const request = require('request')
 const querystring = require('querystring');
@@ -7,9 +8,12 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-var client_id = '3c1ec652d8a9423490aa85829980d813'; // Your client id
-var client_secret = '998c005db1974d98992789d78c4d66be'; // Your secret
-var redirect_uri = 'http://localhost:5000/callback'; // Your redirect uri
+const port = process.env.PORT;
+const host = process.env.HOST;
+
+var client_id = process.env.CLIENT_ID;
+var client_secret = process.env.CLIENT_SECRET;
+var redirect_uri = process.env.REDIRECT_URI;
 
 app.get('/login', (req,res) => {
     var scope = 'streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state';
@@ -42,18 +46,16 @@ app.get('/callback', (req,res) => {
   
             var access_token = body.access_token;
 
-            res.redirect('http://localhost:3000/player?' + querystring.stringify({
+            res.redirect('/player?' + querystring.stringify({
                 access_token: access_token
             }));
         }
         else {
-            res.redirect('http://localhost:3000/player?' + querystring.stringify({
+            res.redirect('/player?' + querystring.stringify({
                 error: 'invalid_token'
             }));
         }
     });
 });
 
-const port = 5000;
-
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(port, host, () => console.log(`Server started on ${host}:${port}`));
