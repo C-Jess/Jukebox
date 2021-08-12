@@ -15,6 +15,8 @@ var client_id = process.env.CLIENT_ID;
 var client_secret = process.env.CLIENT_SECRET;
 var redirect_uri = process.env.REDIRECT_URI;
 
+app.use(express.static(path.join(__dirname, '../client/build')));
+
 app.get('/login', (req,res) => {
     var scope = 'streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state';
     res.redirect('https://accounts.spotify.com/authorize?' +
@@ -56,6 +58,10 @@ app.get('/callback', (req,res) => {
             }));
         }
     });
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.listen(port, host, () => console.log(`Server started on ${host}:${port}`));
