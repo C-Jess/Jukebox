@@ -5,9 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build",
-    "devstart": "concurrently \"npm run server\" \"npm start --prefix client\"",
-    "server": "nodemon server/server.js"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
