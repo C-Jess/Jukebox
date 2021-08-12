@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "devstart": "concurrently \"npm run server\" \"npm start --prefix client\"",
     "start": "node server/server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
+    "devstart": "concurrently \"npm run server\" \"npm start --prefix client\"",
     "server": "nodemon server/server.js"
   },
   "author": "",
