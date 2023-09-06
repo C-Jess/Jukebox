@@ -9,14 +9,3 @@ To setup this project:
 * `cd client && npm install && npm run build` install client dependencies and build.
 * `npm start` start sever.
 * View in browser at [localhost:5000](https://localhost:5000)
-
-### View at [jukebox-jess.herokuapp.com](https://jukebox-jess.herokuapp.com).
-
-## To-Do
-- [ ] Fix search and clear buttons.
-- [ ] Improve queue view.
-- [ ] Make adding song clearer.
-
-
----
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
